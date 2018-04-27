@@ -1,0 +1,53 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+    <Scripts>
+        <Script file="Source/Lunar.lua"/>
+    </Scripts>
+    <Windows>
+
+      <!-- MAIN WINDOW DEFINITION -->
+      <Window name="Lunar" movable="true" layer="secondary">
+      <Size>
+        <AbsPoint x="800" y="600"/>
+      </Size>
+      <Anchors>
+        <Anchor point="topleft" relativePoint="topleft" relativeTo="">
+          <AbsPoint x="16" y="400"/>
+        </Anchor>
+      </Anchors>
+      <EventHandlers>
+        <EventHandler event="OnInitialize" function="Lunar.Initialize"/>
+        <EventHandler event="OnShutdown" function="Lunar.Shutdown"/>
+      </EventHandlers>
+
+              <Windows>
+                <!-- General Window Settings -->
+                <FullResizeImage name="$parentBackground" inherits="UO_Default_Inner_Window_Frame">
+                  <Anchors>
+                    <Anchor point="topleft" relativePoint="topleft" relativeTo=""/>
+                    <Anchor point="bottomright" relativePoint="bottomright" relativeTo=""/>
+                  </Anchors>
+                </FullResizeImage>
+
+                <!-- Title Bar -->
+                <Window name="$parentTitleBar" />
+                <Button name="$parentClose" inherits="LargeCloseButton">
+                  <EventHandlers>
+                    <EventHandler event="OnLButtonUp" function="Lunar.HideWindow"/>
+                  </EventHandlers>
+                </Button>
+                <!-- Bottom Window Bar -->
+                <HorizontalResizeImage name="$parentBottomFrame" inherits="UO_Default_Medium_Tab_Enabled">
+                  <Anchors>
+                    <Anchor point="bottomleft" relativePoint="bottomleft" relativeTo="$parent">
+                      <AbsPoint x="0" y="0"/>
+                    </Anchor>
+                    <Anchor point="bottomright" relativePoint="bottomright" relativeTo="$parent">
+                      <AbsPoint x="0" y="0"/>
+                    </Anchor>
+                  </Anchors>
+                </HorizontalResizeImage>
+
+              </Windows>
+        </Window>
+    </Windows>
+</Interface>
